@@ -84,6 +84,7 @@ $(document).ready(function(){
 		User.cash = User.cash - Apple.price;
 		if (User.cash > 0 ) {
 			appleArray.push(Apple.price);
+			// add cash deduction here
 			Apple.quantity++;
 			$("#appleCount").text("Quantity:" + Apple.quantity); // use .html()
 			$("#avgApplePrice").text("Average $:" + avgPrice(appleArray));
