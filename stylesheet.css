@@ -12,7 +12,8 @@ body {
 	height: 80%;
 	float: left;
 	margin: 10px auto 10px auto;
-	background-color: rgba(0, 255, 0, .9);
+	background-color: rgba(0, 200, 50, .9);
+	border-radius: 15px;
 }
 
 
@@ -23,20 +24,66 @@ body {
 	float: right;
 	margin: 10px auto 10px auto;
 	background-color: rgba(0, 0, 255, .9);
+	border-radius: 15px;
 }
 
-.fruitBasket .fruitMarket {
-	display: inline;
+.fruitBasket  {
+	width: 49%;
+	height: 80%;
+	margin: 10px auto 10px auto;
+	display: block;
+	background-color: rgba(255, 0, 60, .75);
+	border-radius: 15px;
+}
+.fruitmarket{
+	width: 49%;
+	height: 80%;
+	margin: 10px auto 10px auto;
+	display: block;
+	background-color: rgba(255, 0, 60, .75);
+	border-radius: 15px;
 }
 
-
-p, label, h1 {
+h1 {
 	color: white;
+	font-size: 30px;
+	font-family: Montserrat;
+}
+
+label {
+	display: inline;
+	color: white;
+	font-size: 46px;
+	margin: 10px;
+	font-family: Montserrat;
+}
+
+p {
+	display: inline;
+	color: white;
+	font-size: 20px;
+	margin: 10px;
+	font-family: Montserrat;
 
 }
 
 button {
-	float:right;
+	margin: 10px auto 10px auto;
+	height: 30px;
+	width: 100px;
+	border-radius: 15px;
+	font-family: Montserrat;
+	font-size: 20px;
+}
+
+#openButton {
+	display: block;
+	margin: 10px auto 10px auto;
+	height: 50px;
+	width: 200px;
+	border-radius: 15px;
+	font-family: Montserrat;
+	font-size: 20px;
 }
 
 img {
