@@ -69,8 +69,8 @@ function priceChange(object) {
 			};
 }
 
+// Buy Function
 function buttonClicker(object, array, countId, averagePriceId) {
-	
 		User.cash = User.cash - object.price;
 		if (User.cash > 0 ) {
 			array.push(object.price);
@@ -83,25 +83,40 @@ function buttonClicker(object, array, countId, averagePriceId) {
 			User.cash = User.cash + object.price;
 			alert("You don't have the money to buy that!");
 		}
-	
+}
 
+// Sell Function
+function sellClicker(object, array, countId, averagePriceId) {
+		User.cash = User.cash + object.price;
+		if (object.quantity > 0 ) {
+			array.pop(object.price);
+			User.cash = (Math.round(User.cash * 100) / 100);
+			$("#totalCash").html("<p>How much money you have: $" + User.cash + "</p>");
+			object.quantity--;
+			$(countId).html("<p>Quantity:" + object.quantity + "</p>" ); // use .html()
+			$(averagePriceId).html("<p>Average Price: $" + avgPrice(array) + "</p>");
+		} else {
+			User.cash = User.cash - object.price;
+			$(averagePriceId).html("<p>Average Price: $0</p>");
+			alert("You can't sell something you don't have!");
+		}
 }
 
 $(document).ready(function(){
 
-
+	// Inital Prices
 	$("#applePrice").html("<p>$" + Apple.price + "</p>");
 	$("#orangePrice").html("<p>$" + Orange.price + "</p>");
 	$("#bananaPrice").html("<p>$" + Banana.price + "</p>");
 	$("#pearPrice").html("<p>$" + Pear.price + "</p>");
 	
+	// Changing Price Display
 	$("#openButton").on("click", function(){	
 		setInterval(function() {
 			$("#applePrice").html("<p>$" + priceChange(Apple ) + "</p>");
 			$("#orangePrice").html("<p>$" + priceChange(Orange ) + "</p>");
 			$("#bananaPrice").html("<p>$" + priceChange(Banana ) + "</p>");
 			$("#pearPrice").html("<p>$" + priceChange(Pear ) + "</p>");
-
 		},15000);
 	});
 
@@ -123,9 +138,24 @@ $(document).ready(function(){
 	});
 
 	// Sell things
+	$("#sellApple").on('click', function(){
+		sellClicker (Apple, appleArray, "#appleCount", "#avgApplePrice");
+	});
+
+	$("#sellOrange").on('click', function() {
+		sellClicker (Orange, orangeArray, "#orangeCount", "#avgOrangePrice");
+	});
+
+	$("#sellBanana").on('click', function() {
+		sellClicker (Banana, bananaArray, "#bananaCount", "#avgBananaPrice");
+	});
+
+	$("#sellPear").on('click', function() {
+		sellClicker (Pear, pearArray, "#pearCount", "#avgPearsPrice");
+	});
 
 
-
+	// Display Cash
 	$("#totalCash").text("How much money you have: $" + User.cash);
 	console.log(User.cash);
 });
