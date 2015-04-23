@@ -1,0 +1,44 @@
+body {
+	background: url("fruitBack.png") repeat;
+}
+
+.container {	
+	margin: 25px 10% 25px 10%;
+}
+
+.market {
+	text-align: center;
+	width: 49%;
+	height: 80%;
+	float: left;
+	margin: 10px auto 10px auto;
+	background-color: rgba(0, 255, 0, .9);
+}
+
+
+.userDisplay {
+	text-align: center;
+	width: 49%;
+	height: 80%;
+	float: right;
+	margin: 10px auto 10px auto;
+	background-color: rgba(0, 0, 255, .9);
+}
+
+.fruitBasket .fruitMarket {
+	display: inline;
+}
+
+
+p, label, h1 {
+	color: white;
+
+}
+
+button {
+	float:right;
+}
+
+img {
+	display: inline;
+}

@@ -51,6 +51,7 @@ function avgPrice(array) {
 		value+=array[i];
 	}
 	value /= array.length;
+	value = (Math.round(value * 100) /100);
 	return value;
 }
 
@@ -64,59 +65,82 @@ function priceChange(object) {
 			} else if ( object.price < 0.5 ) {
 				return object.price = 0.5;
 			} else {
-				return object.price;
+				return (Math.round(object.price * 100) /100);
 			};
+}
+
+function buttonClicker(object, array, countId, averagePriceId) {
+	
+		User.cash = User.cash - object.price;
+		if (User.cash > 0 ) {
+			array.push(object.price);
+			User.cash = (Math.round(User.cash * 100) / 100);
+			$("#totalCash").html("<p>How much money you have: $" + User.cash + "</p>");
+			object.quantity++;
+			$(countId).html("<p>Quantity:" + object.quantity + "</p>" ); // use .html()
+			$(averagePriceId).html("<p>Average Price: $" + avgPrice(array) + "</p>");
+		} else {
+			User.cash = User.cash + object.price;
+			alert("You don't have the money to buy that!");
+		}
+	
+
 }
 
 $(document).ready(function(){
 
-	setInterval(function() {
-		$("#applePrice").text( "$" + priceChange(Apple ));
-		$("#orangePrice").text( "$" + priceChange(Orange ));
-		$("#bananaPrice").text( "$" + priceChange(Banana ));
-		$("#pearPrice").text( "$" + priceChange(Pear ));
+	$("#openButton").on("click", function(){
+		$("#applePrice").html( "$" + Apple.price);
+		$("#orangePrice").html( "$" + Orange.price);
+		$("#bananaPrice").html( "$" + Banana.price);
+		$("#pearPrice").html( "$" + Pear.price);
+		setInterval(function() {
+		$("#applePrice").html( "$" + priceChange(Apple ));
+		$("#orangePrice").html( "$" + priceChange(Orange ));
+		$("#bananaPrice").html( "$" + priceChange(Banana ));
+		$("#pearPrice").html( "$" + priceChange(Pear ));
 
-	},3500); // Change to 15,000
-
+	},3000); // Change to 15,000
+});
 // Buy things
 
+
 	$("#appleButton").on('click', function() {
-		User.cash = User.cash - Apple.price;
-		if (User.cash > 0 ) {
-			appleArray.push(Apple.price);
-			// add cash deduction here
-			Apple.quantity++;
-			$("#appleCount").text("Quantity:" + Apple.quantity); // use .html()
-			$("#avgApplePrice").text("Average $:" + avgPrice(appleArray));
-		} else {
-			User.cash = User.cash + Apple.price;
-			alert("You don't have the money to buy that!");
-		}
+		buttonClicker (Apple, appleArray, "#appleCount", "#avgApplePrice");
 	});
 
 	// add if/else statements to all these below things
 
 	$("#orangeButton").on('click', function() {
-		orangeArray.push(Orange.price);
-		$("#orangeCount").text("Quantity:" + Orange.quantity);
-		$("#avgOrangePrice").text("Average $:" + avgPrice(orangeArray));
+		buttonClicker (Orange, orangeArray, "#orangeCount", "#avgOrangePrice");
 	});
+
 	$("#bananaButton").on('click', function() {
-		bananaArray.push(Banana.price);
-		Banana.quantity+=1;
-		$("#bananaCount").text("Quantity:" + Banana.quantity);
-		$("#avgBananaPrice").text("Average $:" + avgPrice(bananaArray));
+		buttonClicker (Banana, bananaArray, "#bananaCount", "#avgBananaPrice");
 	});
 	$("#pearButton").on('click', function() {
-		pearArray.push(Pear.price);
-		Pear.quantity+=1;
-		$("#pearCount").text("Quantity:" + Pear.quantity);
-		$("#avgPearPrice").text("Average $:" + avgPrice(pearArray));
+		buttonClicker (Pear, pearArray, "#pearCount", "#avgPearPrice");
 	});
 
 	$("#totalCash").text("How much money you have: $" + User.cash);
 	console.log(User.cash); // fix this -- its nots subtracting
 });
+
+
+// $("#appleButton").on('click', function() {
+// 		User.cash = User.cash - Apple.price;
+// 		if (User.cash > 0 ) {
+// 			appleArray.push(Apple.price);
+// 			User.cash = (Math.round(User.cash * 100) / 100);
+// 			$("#totalCash").html("<p>How much money you have: $" + User.cash + "</p>");
+// 			Apple.quantity++;
+// 			$("#appleCount").html("<p>Quantity:" + Apple.quantity + "</p>" ); // use .html()
+// 			$("#avgApplePrice").html("<p>Average Price: $" + avgPrice(appleArray) + "</p>");
+// 		} else {
+// 			User.cash = User.cash + Apple.price;
+// 			alert("You don't have the money to buy that!");
+// 		}
+// 	});
 
 
 
