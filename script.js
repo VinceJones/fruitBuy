@@ -37,7 +37,7 @@ var Pear = {
 
 
 var User = {
-	cash: 100
+	cash: 50
 }
 
 function randomNumber(min, max) {
@@ -59,7 +59,7 @@ function avgPrice(array) {
 
 function priceChange(object) {
 	
-		value = ( randomNumber(-50, 50) / 100);
+		value = ( randomNumber(-25, 25) / 100);
 		object.price = value + object.price;
 
 			if (object.price > 9.99) {
@@ -106,14 +106,16 @@ function sellClicker(object, array, countId, averagePriceId) {
 
 $(document).ready(function(){
 
+
 	// Inital Prices
-	$("#applePrice").html("<p>$" + Apple.price + "</p>");
-	$("#orangePrice").html("<p>$" + Orange.price + "</p>");
-	$("#bananaPrice").html("<p>$" + Banana.price + "</p>");
-	$("#pearPrice").html("<p>$" + Pear.price + "</p>");
+	$("#openButton").on("click", function(){
+		$("#applePrice").html("<p>$" + Apple.price + "</p>");
+		$("#orangePrice").html("<p>$" + Orange.price + "</p>");
+		$("#bananaPrice").html("<p>$" + Banana.price + "</p>");
+		$("#pearPrice").html("<p>$" + Pear.price + "</p>");
 	
 	// Changing Price Display
-	$("#openButton").on("click", function(){	
+		
 		setInterval(function() {
 			$("#applePrice").html("<p>$" + priceChange(Apple ) + "</p>");
 			$("#orangePrice").html("<p>$" + priceChange(Orange ) + "</p>");
@@ -158,7 +160,7 @@ $(document).ready(function(){
 
 
 	// Display Cash
-	$("#totalCash").text("How much money you have: $" + User.cash);
+	$("#totalCash").html("<p>How much money you have: $" + User.cash + "</p>");
 	console.log(User.cash);
 });
 
