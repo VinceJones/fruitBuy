@@ -50,7 +50,9 @@ function avgPrice(array) {
 	for (i = 0; i < array.length; i++){
 		value+=array[i];
 	}
-	value /= array.length;
+	if (array.length > 1){
+		value /= array.length;
+	}
 	value = (Math.round(value * 100) /100);
 	return value;
 }
@@ -88,7 +90,7 @@ function buttonClicker(object, array, countId, averagePriceId) {
 // Sell Function
 function sellClicker(object, array, countId, averagePriceId) {
 		User.cash = User.cash + object.price;
-		if (object.quantity > 0 ) {
+		if (object.quantity > 0  ) {
 			array.pop(object.price);
 			User.cash = (Math.round(User.cash * 100) / 100);
 			$("#totalCash").html("<p>How much money you have: $" + User.cash + "</p>");

@@ -32,7 +32,7 @@ body {
 	height: 80%;
 	margin: 10px auto 10px auto;
 	display: block;
-	background-color: rgba(255, 0, 60, .75);
+	background-color: rgba(0, 0, 0, .75);
 	border-radius: 15px;
 }
 .fruitmarket{
@@ -40,7 +40,7 @@ body {
 	height: 80%;
 	margin: 10px auto 10px auto;
 	display: block;
-	background-color: rgba(255, 0, 60, .75);
+	background-color: rgba(0, 0, 0, .75);
 	border-radius: 15px;
 }
 
