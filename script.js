@@ -4,7 +4,6 @@ var value;
 var appleArray = [];
 var orangeArray = [];
 var bananaArray = [];
-var grapeArray = [];
 var pearArray = [];
 // var price = randomNumber(1,4)
 

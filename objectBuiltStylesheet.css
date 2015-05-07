@@ -1,21 +1,12 @@
 body {
-	background: url("fruitBack.png") repeat;
+	background: url("images/fruitBack.png") repeat;
+	color: white;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .container {	
 	margin: 25px 10% 25px 10%;
 }
-
-.market {
-	text-align: center;
-	width: 49%;
-	height: 80%;
-	float: left;
-	margin: 10px auto 10px auto;
-	background-color: rgba(0, 200, 50, .9);
-	border-radius: 15px;
-}
-
 
 .userDisplay {
 	text-align: center;
@@ -27,7 +18,7 @@ body {
 	border-radius: 15px;
 }
 
-.fruitBasket  {
+.basket  {
 	width: 49%;
 	height: 80%;
 	margin: 10px auto 10px auto;
@@ -35,44 +26,44 @@ body {
 	background-color: rgba(0, 0, 0, .75);
 	border-radius: 15px;
 }
-.fruitmarket{
+.market{
 	width: 49%;
 	height: 80%;
 	margin: 10px auto 10px auto;
 	display: block;
 	background-color: rgba(0, 0, 0, .75);
+	border-radius: 15px;
+}
+
+.fruitMarket {
+	text-align: center;
+	width: 49%;
+	height: 80%;
+	float: left;
+	margin: 10px auto 10px auto;
+	background-color: rgba(0, 200, 50, .9);
 	border-radius: 15px;
 }
 
 h1 {
-	color: white;
 	font-size: 30px;
-	font-family: Montserrat;
 }
 
 label {
 	display: inline;
-	color: white;
 	font-size: 46px;
 	margin: 10px;
-	font-family: Montserrat;
 }
 
 p {
 	display: inline;
-	color: white;
 	font-size: 20px;
 	margin: 10px;
-	font-family: Montserrat;
-
 }
 
 button {
 	margin: 10px auto 10px auto;
-	height: 30px;
-	width: 100px;
-	border-radius: 15px;
-	font-family: Montserrat;
+	border-radius: 5px;
 	font-size: 20px;
 }
 
@@ -82,7 +73,6 @@ button {
 	height: 50px;
 	width: 200px;
 	border-radius: 15px;
-	font-family: Montserrat;
 	font-size: 20px;
 }
 
